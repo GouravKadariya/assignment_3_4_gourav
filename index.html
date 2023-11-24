@@ -2,42 +2,63 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gourav: Assignment 3 and 4</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourav: Assignment 3 and 4</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
 </head>
 
 <body>
-  <header>
-    <div class="banner">
-      <h1>US Dollar to Canadian Dollar <span id="title__dot">.</span></h1>
-      <p>Convert USD to CAD at the real exchange rate</p>
+
+    <!-- header section -->
+    <header>
+        <div class="banner">
+            <h1>US Dollar to Canadian Dollar <span id="title__dot">.</span></h1>
+            <p>Convert USD to CAD at the real exchange rate</p>
+        </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- main section -->
+    <main class="main">
+
+        <!-- USD section -->
+        <div class="money-component">
+            <div class="money-item">
+                <p>Amount</p>
+                <input placeholder="USD" id="usd">
+            </div>
+            <div class="money-currency">USD</div>
+        </div>
+
+        <!-- END USD section -->
+
+        <!-- icon for exchange -->
+        <div class="icon-div">
+            <img src="icon.png" alt="icon image">
+        </div>
+        <!-- end for exchange icon -->
+
+        <!-- cad section -->
+        <div class="money-component">
+            <div class="money-item">
+                <p>Convert To</p>
+                <input placeholder="CAD" id="cad" readonly>
+            </div>
+            <div class="money-currency">CAD</div>
+        </div>
+        <!-- end cad section -->
+    </main>
+    <!-- main end -->
+
+    <!-- button section  -->
+    <div class="button-wrapper">
+        <button id="convertButton">Convert</button>
     </div>
-  </header>
-  <main class="main">
-    <div class="money-component">
-      <div class="money-item">
-        <p>Amount</p>
-        <input placeholder="USD" id="usd">
-      </div>
-      <div class="money-currency">USD</div>
-    </div>
-    <div class="icon-div">
-      <img src="icon.png" alt="icon image">
-    </div>
-    <div class="money-component">
-      <div class="money-item">
-        <p>Convert To</p>
-        <input placeholder="CAD" id="cad" readonly>
-      </div>
-      <div class="money-currency">CAD</div>
-    </div>
-  </main>
-  <div class="button-wrapper">
-    <button id="convertButton">Convert</button>
-  </div>
+    <!-- end button section -->
+
 </body>
 
 </html>
