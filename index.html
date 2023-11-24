@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gourav: Assignment 3 and 4</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+  <header>
+    <div class="banner">
+      <h1>US Dollar to Canadian Dollar <span id="title__dot">.</span></h1>
+      <p>Convert USD to CAD at the real exchange rate</p>
+    </div>
+  </header>
+  <main class="main">
+    <div class="money-component">
+      <div class="money-item">
+        <p>Amount</p>
+        <input placeholder="USD" id="usd">
+      </div>
+      <div class="money-currency">USD</div>
+    </div>
+    <div class="icon-div">
+      <img src="icon.png" alt="icon image">
+    </div>
+    <div class="money-component">
+      <div class="money-item">
+        <p>Convert To</p>
+        <input placeholder="CAD" id="cad" readonly>
+      </div>
+      <div class="money-currency">CAD</div>
+    </div>
+  </main>
+  <div class="button-wrapper">
+    <button id="convertButton">Convert</button>
+  </div>
 </body>
+
 </html>
