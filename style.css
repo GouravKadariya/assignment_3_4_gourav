@@ -28,6 +28,13 @@ input {
   border-radius: 0;
 }
 
+select {
+  background-color: #202a59;
+  color: white;
+  border: none;
+}
+
+
 /* p tag style */
 p {
   margin-bottom: 0;

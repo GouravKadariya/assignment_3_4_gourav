@@ -2,93 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourav: Assignment 3 and 4</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- fav icon -->
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <title>Gourav: Assignment 3 and 4</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- header section -->
-    <header>
-        <div class="banner">
-            <h1>US Dollar to Canadian Dollar <span id="title__dot">.</span></h1>
-            <p>Convert USD to CAD at the real exchange rate</p>
-        </div>
-    </header>
-    <!-- end header section -->
-
-    <!-- main section -->
-    <main class="main">
-
-        <!-- USD section -->
-        <div class="money-component">
-            <div class="money-item">
-                <p>Amount</p>
-                <input placeholder="USD" onchange="usdChanged(this)" id="usd" type="number">
-            </div>
-            <div class="money-currency">
-            <img src="united-states.png" alt="usa-icon">&nbsp;USD
-            </div>
-        </div>
-
-        <!-- END USD section -->
-
-        <!-- icon for exchange -->
-        <div class="icon-div">
-            <img src="icon.png" alt="icon image">
-        </div>
-        <!-- end for exchange icon -->
-
-        <!-- cad section -->
-        <div class="money-component">
-            <div class="money-item">
-                <p>Convert To</p>
-                <input placeholder="CAD" id="cad" readonly>
-            </div>
-            <div class="money-currency"><img src="canada.png" alt="Canada icon">&nbsp;CAD</div>
-        </div>
-        <!-- end cad section -->
-    </main>
-    <!-- main end -->
-
-    <!-- button section  -->
-    <div class="button-wrapper">
-        <button onclick="convertToCad()" id="convertButton">Convert</button>
+  <header>
+    <div class="banner">
+      <h1>US Dollar to Canadian Dollar <span id="title__dot">.</span></h1>
+      <p>Convert USD to CAD at the real exchange rate</p>
     </div>
-    <!-- end button section -->
+  </header>
+  <main class="main">
+    <div class="money-component">
+      <div class="money-item">
+        <p>Amount</p>
+        <input id="firstMoney" type="number" onchange="firstMoneyChanged(this)" >
+      </div>
+      <div class="money-currency">
+        <select id="firstMoneySelect">
+          <option value="USD" selected>🇺🇸&nbsp;USD</option>
+          <option value="CAD">🇨🇦&nbsp;CAD</option>
+        </select>
+      </div>
+    </div>
+    <div class="icon-div">
+      <img src="icon.png">
+    </div>
+    <div class="money-component">
+      <div class="money-item">
+        <p>Convert To</p>
+        <input id="secondMoney" readonly>
+      </div>
+      <div class="money-currency">
+        <select id="secondMoneySelect">
+          <option value="CAD" selected>🇨🇦&nbsp;CAD</option>
+          <option value="USD">🇺🇸&nbsp;USD</option>
+        </select>
+      </div>
+    </div>
+  </main>
+  <div class="button-wrapper">
+    <button onclick="convertMoney()" id="convertButton">Convert</button>
+  </div>
+  <script>
+    const firstMoneyInput = document.getElementById("firstMoney");
+    const firstMoneySelect = document.getElementById("firstMoneySelect");
+    const secondMoneyInput = document.getElementById("secondMoney");
+    const secondMoneySelect = document.getElementById("secondMoneySelect");
 
-    <!-- start of the script -->
-    <script>
+    function convertToCad(usd) {
+      return (usd * 1.33).toFixed(3);
+    }
 
-        // defining dom element usd and cad input
-        const usdInput = document.getElementById("usd");
-        const cadInput = document.getElementById("cad");
-    
-        function convertToCad() {
-          if (!usdInput.value) {
-            alert("Provide usd value!!!");
+    function convertToUSD(cad) {
+      return (cad / 1.33).toFixed(3);
+    }
+
+
+    function convertMoney() {
+      if (!firstMoneyInput.value) {
+        alert("Please provide the amount to convert!!!");
+      }
+      else {
+        const firstMoneyType = firstMoneySelect.value;
+        const secondMoneyType = secondMoneySelect.value;
+        if (firstMoneyType === secondMoneyType) {
+          secondMoneyInput.value = firstMoneyInput.value;
+        }
+        else {
+          if (secondMoneyType === "USD") {
+            secondMoneyInput.value = convertToUSD(parseFloat(firstMoneyInput.value))
           }
           else {
-            const usdValue = parseFloat(usdInput.value);
-            const cadValue = (usdValue * 1.33).toFixed(3);
-            cadInput.value = cadValue;
+            secondMoneyInput.value = convertToCad(parseFloat(firstMoneyInput.value))
           }
         }
-    
-        function usdChanged(element) {
-          if (!element.value) {
-            element.style.borderColor = "red";
-          }
-          else {
-            element.style.borderColor = "grey";
-          }
-        }
-      </script>
+      }
+    }
 
+    function firstMoneyChanged(element) {
+      if (!element.value) {
+        element.style.borderColor = "red";
+      }
+      else {
+        element.style.borderColor = "grey";
+      }
+    }
+  </script>
 </body>
 
 </html>
