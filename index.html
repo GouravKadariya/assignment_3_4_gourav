@@ -28,7 +28,7 @@
         <div class="money-component">
             <div class="money-item">
                 <p>Amount</p>
-                <input placeholder="USD" id="usd">
+                <input placeholder="USD" onchange="usdChanged(this)" id="usd">
             </div>
             <div class="money-currency">
             <img src="united-states.png" alt="usa-icon">&nbsp;USD
@@ -57,9 +57,37 @@
 
     <!-- button section  -->
     <div class="button-wrapper">
-        <button id="convertButton">Convert</button>
+        <button onclick="convertToCad()" id="convertButton">Convert</button>
     </div>
     <!-- end button section -->
+
+    <!-- start of the script -->
+    <script>
+
+        // defining dom element usd and cad input
+        const usdInput = document.getElementById("usd");
+        const cadInput = document.getElementById("cad");
+    
+        function convertToCad() {
+          if (!usdInput.value) {
+            alert("Provide usd value!!!");
+          }
+          else {
+            const usdValue = parseFloat(usdInput.value);
+            const cadValue = (usdValue * 1.33).toFixed(3);
+            cadInput.value = cadValue;
+          }
+        }
+    
+        function usdChanged(element) {
+          if (!element.value) {
+            element.style.borderColor = "red";
+          }
+          else {
+            element.style.borderColor = "grey";
+          }
+        }
+      </script>
 
 </body>
 
